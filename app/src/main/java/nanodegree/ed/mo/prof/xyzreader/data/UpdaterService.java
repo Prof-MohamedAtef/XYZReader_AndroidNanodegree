@@ -11,24 +11,19 @@ import android.net.Uri;
 import android.os.RemoteException;
 import android.text.format.Time;
 import android.util.Log;
-
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
 import nanodegree.ed.mo.prof.xyzreader.remote.RemoteEndpointUtil;
 
 public class UpdaterService extends IntentService {
     private static final String TAG = "UpdaterService";
 
     public static final String BROADCAST_ACTION_STATE_CHANGE
-            = "com.example.xyzreader.intent.action.STATE_CHANGE";
+            = "nanodegree.ed.mo.prof.xyzreader.intent.action.STATE_CHANGE";
     public static final String EXTRA_REFRESHING
-            = "com.example.xyzreader.intent.extra.REFRESHING";
+            = "nanodegree.ed.mo.prof.xyzreader.intent.extra.REFRESHING";
     public static final String BROADCAST_ACTION_NO_CONNECTIVITY
             = "nanodegree.ed.mo.prof.xyzreader.intent.action.NO_CONNECTIVITY";
 
