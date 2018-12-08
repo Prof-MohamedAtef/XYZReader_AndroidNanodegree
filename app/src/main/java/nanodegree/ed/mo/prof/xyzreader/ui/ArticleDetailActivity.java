@@ -39,9 +39,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     private int mCurrentPosition;
     private int mStartingPosition;
     public final static String ARTICLE_ID = "ARTICLE_ID";
-    private long mSelectedItemId;
-    private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
-    private ArticleDetailFragment articleDetailFragment;
+    public ArticleDetailFragment articleDetailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
