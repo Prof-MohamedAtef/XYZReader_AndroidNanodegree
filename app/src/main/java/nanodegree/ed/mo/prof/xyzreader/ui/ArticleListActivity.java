@@ -127,6 +127,10 @@ public class ArticleListActivity extends AppCompatActivity implements
                         refresh();
                     }
                 });
+        ShowSnackMessage(snackbar);
+    }
+
+    private void ShowSnackMessage(Snackbar snackbar) {
         // Changing message text color
         snackbar.setActionTextColor(Color.RED);
         // Changing action button text color
@@ -150,6 +154,13 @@ public class ArticleListActivity extends AppCompatActivity implements
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
+        SnackBarLoadedData();
+    }
+
+    private void SnackBarLoadedData() {
+        Snackbar snackbar = Snackbar
+                .make(Config.mCoordinatorLayout, Config.mContext.getResources().getString(R.string.loadedsuccess), Snackbar.LENGTH_LONG);
+        ShowSnackMessage(snackbar);
     }
 
     @Override

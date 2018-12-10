@@ -75,14 +75,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:transitionGroup="true">
         <LinearLayout
             android:id="@+id/details_text_container"
-            android:layout_width="match_parent"
+            android:layout_weight="4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:transitionGroup="true">
-
             <TextView
                 android:id="@+id/article_body"
                 style="?android:attr/textAppearanceMedium"
@@ -98,6 +102,15 @@
                 android:autoLink="web"
                 android:linksClickable="true"
                 android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
+        </LinearLayout>
+            <ImageView
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:id="@+id/Image_arr_down"
+                android:src="@drawable/arr_down"
+                android:layout_weight="0.5"
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     <android.support.design.widget.FloatingActionButton

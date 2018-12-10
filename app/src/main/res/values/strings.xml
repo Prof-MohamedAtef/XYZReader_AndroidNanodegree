@@ -10,6 +10,7 @@
     <string name="up">Up</string>
     <string name="retry">Retry</string>
     <string name="noconnection">No Internet Connection!</string>
+    <string name="loadedsuccess">Data Loaded successfully!</string>
     <string name="transition_photo">transition_photo</string>
 
     <string name="loading_msg">Loading ...</string>

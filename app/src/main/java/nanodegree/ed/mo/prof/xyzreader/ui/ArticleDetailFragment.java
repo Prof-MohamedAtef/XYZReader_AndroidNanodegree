@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -71,6 +72,8 @@ public class ArticleDetailFragment extends Fragment implements
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
 
+    @BindView(R.id.Image_arr_down)
+    ImageView imageArrDown;
     @BindView(R.id.scrollView)
     NestedScrollView mScrollView;
     @BindView(R.id.photo_container)
@@ -172,6 +175,7 @@ public class ArticleDetailFragment extends Fragment implements
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
+        imageArrDown.setVisibility(View.GONE);
         mShareFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -252,8 +256,25 @@ public class ArticleDetailFragment extends Fragment implements
                                     + "</font>"));
                 }
             }
+
             final String body=mCursor.getString(ArticleLoader.Query.BODY);
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+            int end=body.length();
+            String subString1=body.substring(0,499);
+            final String subString2=body.substring(500, end);
+
+            bodyView.setText(subString1);
+            String currentlyDisplayed= String.valueOf(bodyView.getText());
+            if (currentlyDisplayed.length()>0){
+                imageArrDown.setVisibility(View.VISIBLE);
+            }
+            imageArrDown.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bodyView.append(subString2);
+                    imageArrDown.setVisibility(View.GONE);
+                }
+            });
+
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
